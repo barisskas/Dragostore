@@ -1,0 +1,16 @@
+<input type="text" id="categoryName" />
+<button id="saveCategory" onclick="categorySave()">Kategoriyi Kaydet</button>
+
+<script>
+  async function categorySave() {
+    const categoryName = document.getElementById("categoryName").value;
+
+    await fetch("/category", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ categoryName }),
+    });
+  }
+</script>
