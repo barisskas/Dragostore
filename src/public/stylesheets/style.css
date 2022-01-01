@@ -1,0 +1,14 @@
+.swiper-wrapper {
+  height: 600px;
+  width: 100%;
+}
+
+/* Submit Right / admin */
+.submit {
+  display: block;
+  margin-left: auto;
+}
+
+.card-item {
+  border-right: 1px solid gray;
+}
