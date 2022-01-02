@@ -1,22 +1,22 @@
 <div class="container p-2 my-2 text-white tema">
   <div class="row">
-    <div class="col-lg-3 card-item mx-auto p-3 m-2 admincard">
-      <div class="card text-white bg-dark mb-3 adminincard" >
-        <div class="card-body">
-        <h4>Kategori Ekle</h4>
-        <hr />
+    <div class="col-lg-4 card-item mx-auto p-3 m-2 admincard">
+      <div class="card text-white bg-dark mb-3 adminincard">
         <form id="categoryFormAdd">
-          <div class="form-group">
-            <label for="name">Kategori</label>
-            <input
-              id="name"
-              type="text"
-              class="form-control"
-              name="name"
-              placeholder="Ekran Kartları"
-            />
+          <div class="card-body">
+            <h4>Kategori Ekle</h4>
+            <hr />
+            <div class="form-group">
+              <label for="name">Kategori</label>
+              <input
+                id="name"
+                type="text"
+                class="form-control"
+                name="name"
+                placeholder="Ekran Kartları"
+              />
+            </div>
           </div>
-        </div>
           <div class="card-header bg-primary admincardheader">
             <div class="form-group">
               <button class="btn btn-dark mt-2 submit">Kaydet</button>
@@ -24,196 +24,202 @@
           </div>
         </form>
       </div>
-      <div class="card text-white bg-dark mb-3 adminincard" >
-        <div class="card-body">
-      <h4>Kategori Sil</h4>
-      <hr />
-      <form id="categoryFormDelete">
-        <div class="form-group">
-          <label for="name">Kategori İsmi</label>
-          <select class="form-control category" id="categoryId">
-            <% categories.forEach((category)=> { %>
-            <option
-              value="<%= category._id %>"
-              query-name="<%= category.queryName %>"
-            >
-              <%= category.name %>
-            </option>
-            <% }) %>
-          </select>
-        </div>
+      <div class="card text-white bg-dark mb-3 adminincard">
+        <form id="categoryFormDelete">
+          <div class="card-body">
+            <h4>Kategori Sil</h4>
+            <hr />
+            <div class="form-group">
+              <label for="name">Kategori İsmi</label>
+              <select class="form-control category" id="categoryId">
+                <% categories.forEach((category)=> { %>
+                <option
+                  value="<%= category._id %>"
+                  query-name="<%= category.queryName %>"
+                >
+                  <%= category.name %>
+                </option>
+                <% }) %>
+              </select>
+            </div>
+          </div>
+          <div class="card-header bg-primary admincardheader">
+            <div class="form-group">
+              <button class="btn btn-dark mt-2 submit">Sil</button>
+            </div>
+          </div>
+        </form>
       </div>
-        <div class="card-header bg-primary admincardheader">
-        <div class="form-group">
-          <button class="btn btn-dark mt-2 submit">Sil</button>
-        </div>
-      </div>
-      </form>
     </div>
-  </div>
-    <div class="col-lg-3 card-item mx-auto p-3 m-2 admincard">
-      <div class="card text-white bg-dark mb-3 adminincard" >
-        <div class="card-body">
-      <h4>Marka Ekle</h4>
-      <hr />
-      <form id="brandFormAdd">
-        <div class="form-group">
-          <label for="categoryId">Kategori</label>
-          <select class="form-control category" name="category" id="categoryId">
-            <% categories.forEach((category)=> { %>
-            <option value="<%= category._id %>"><%= category.name %></option>
-            <% }) %>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            id="name"
-            type="text"
-            class="form-control"
-            name="name"
-            placeholder="NVIDIA"
-          />
-        </div>
-      </div>
-      <div class="card-header bg-primary admincardheader">
-        <div class="form-group">
-          <button class="btn btn-dark mt-2 submit">Kaydet</button>
-        </div>
-      </div>
-      </form>
-    </div>
-    <div class="card text-white bg-dark mb-3 adminincard" >
-      <div class="card-body">
-      <h4>Marka Sil</h4>
-      <hr />
-      <form id="brandFormDelete">
-        <div class="category-brand">
-          <div class="form-group">
-            <label for="categoryId">Kategori</label>
-            <select
-              class="form-control category"
-              name="category"
-              id="categoryId"
-            >
-              <% categories.forEach((category)=> { %>
-              <option
-                value="<%= category._id %>"
-                query-name="<%= category.queryName %>"
+    <div class="col-lg-4 card-item mx-auto p-3 m-2 admincard">
+      <div class="card text-white bg-dark mb-3 adminincard">
+        <form id="brandFormAdd">
+          <div class="card-body">
+            <h4>Marka Ekle</h4>
+            <hr />
+            <div class="form-group">
+              <label for="categoryId">Kategori</label>
+              <select
+                class="form-control category"
+                name="category"
+                id="categoryId"
               >
-                <%= category.name %>
-              </option>
-              <% }) %>
-            </select>
+                <% categories.forEach((category)=> { %>
+                <option value="<%= category._id %>">
+                  <%= category.name %>
+                </option>
+                <% }) %>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                type="text"
+                class="form-control"
+                name="name"
+                placeholder="NVIDIA"
+              />
+            </div>
           </div>
-          <div class="form-group">
-            <label for="categoryId">Marka</label>
-            <select class="form-control brand" name="brand" id="brandId">
-              <% brands.forEach((brand)=> { %>
-              <option value="<%= brand._id %>"><%= brand.name %></option>
-              <% }) %>
-            </select>
+          <div class="card-header bg-primary admincardheader">
+            <div class="form-group">
+              <button class="btn btn-dark mt-2 submit">Kaydet</button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
-      <div class="card-header bg-primary admincardheader">
-        <div class="form-group">
-          <button class="btn btn-dark mt-2 submit">Sil</button>
-        </div>
+      <div class="card text-white bg-dark mb-3 adminincard">
+        <form id="brandFormDelete">
+          <div class="card-body">
+            <h4>Marka Sil</h4>
+            <hr />
+            <div class="category-brand">
+              <div class="form-group">
+                <label for="categoryId">Kategori</label>
+                <select
+                  class="form-control category"
+                  name="category"
+                  id="categoryId"
+                >
+                  <% categories.forEach((category)=> { %>
+                  <option
+                    value="<%= category._id %>"
+                    query-name="<%= category.queryName %>"
+                  >
+                    <%= category.name %>
+                  </option>
+                  <% }) %>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="categoryId">Marka</label>
+                <select class="form-control brand" name="brand" id="brandId">
+                  <% brands.forEach((brand)=> { %>
+                  <option value="<%= brand._id %>"><%= brand.name %></option>
+                  <% }) %>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="card-header bg-primary admincardheader">
+            <div class="form-group">
+              <button class="btn btn-dark mt-2 submit">Sil</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-      </form>
-    </div>
-    <div class="col-lg-3 card-item mx-auto p-3 m-2 admincard">
-      <div class="card text-white bg-dark mb-3 adminincard" >
-        <div class="card-body">
-      <h4>Ürün Ekle</h4>
-      <hr />
-      <form id="productFormAdd">
-        <div class="category-brand">
-          <div class="form-group">
-            <label for="categoryId">Kategori</label>
-            <select
-              class="form-control category"
-              name="category"
-              id="categoryId"
-            >
-              <% categories.forEach((category)=> { %>
-              <option
-                value="<%= category._id %>"
-                query-name="<%= category.queryName %>"
-              >
-                <%= category.name %>
-              </option>
-              <% }) %>
-            </select>
+    <div class="col-lg-4 card-item mx-auto p-3 m-2 admincard">
+      <div class="card text-white bg-dark mb-3 adminincard">
+        <form id="productFormAdd">
+          <div class="card-body">
+            <h4>Ürün Ekle</h4>
+            <hr />
+            <div class="category-brand">
+              <div class="form-group">
+                <label for="categoryId">Kategori</label>
+                <select
+                  class="form-control category"
+                  name="category"
+                  id="categoryId"
+                >
+                  <% categories.forEach((category)=> { %>
+                  <option
+                    value="<%= category._id %>"
+                    query-name="<%= category.queryName %>"
+                  >
+                    <%= category.name %>
+                  </option>
+                  <% }) %>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="categoryId">Marka</label>
+                <select class="form-control brand" name="brand" id="brandId">
+                  <% brands.forEach((brand)=> { %>
+                  <option value="<%= brand._id %>"><%= brand.name %></option>
+                  <% }) %>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input id="name" type="text" class="form-control" name="name" />
+            </div>
+            <div class="form-group">
+              <label for="price">Fiyatı</label>
+              <input
+                id="price"
+                type="number"
+                class="form-control"
+                placeholder="00"
+              />
+            </div>
+            <div class="form-group">
+              <label for="features">Features</label>
+              <textarea
+                id="features"
+                type="text"
+                class="form-control"
+                placeholder=""
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="images">Images</label>
+              <textarea
+                id="images"
+                type="text"
+                class="form-control"
+                placeholder="imageName.png, imageName2.png, imageName3.png ..."
+              ></textarea>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="categoryId">Marka</label>
-            <select class="form-control brand" name="brand" id="brandId">
-              <% brands.forEach((brand)=> { %>
-              <option value="<%= brand._id %>"><%= brand.name %></option>
-              <% }) %>
-            </select>
+          <div class="card-header bg-primary admincardheader">
+            <div class="form-group">
+              <button class="btn btn-dark mt-2 submit">Kaydet</button>
+            </div>
           </div>
-        </div>
+        </form>
+      </div>
 
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input id="name" type="text" class="form-control" name="name" />
-        </div>
-        <div class="form-group">
-          <label for="price">Fiyatı</label>
-          <input
-            id="price"
-            type="number"
-            class="form-control"
-            placeholder="00"
-          />
-        </div>
-        <div class="form-group">
-          <label for="features">Features</label>
-          <textarea
-            id="features"
-            type="text"
-            class="form-control"
-            placeholder=""
-          ></textarea>
-        </div>
-        <div class="form-group">
-          <label for="images">Images</label>
-          <textarea
-            id="images"
-            type="text"
-            class="form-control"
-            placeholder="imageName.png, imageName2.png, imageName3.png ..."
-          ></textarea>
-        </div>
+      <div class="card text-white bg-dark mb-3 adminincard">
+        <form id="productFormDelete">
+          <div class="card-body">
+            <h4>Ürün Sil</h4>
+            <hr />
+            <div class="form-group">
+              <label for="name">Ürün Modeli</label>
+              <input id="name" type="text" class="form-control" name="name" />
+            </div>
+          </div>
+          <div class="card-header bg-primary admincardheader">
+            <div class="form-group">
+              <button class="btn btn-dark mt-2 submit">Sil</button>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="card-header bg-primary admincardheader">
-        <div class="form-group">
-          <button class="btn btn-dark mt-2 submit">Kaydet</button>
-        </div>
-      </div>
-      </form>
-      
-    </div>
-    <div class="card text-white bg-dark mb-3 adminincard" >
-      <div class="card-body">
-      <h4>Ürün Sil</h4>
-      <hr />
-      <form id="productFormDelete">
-        <div class="form-group">
-          <label for="name">Ürün Modeli</label>
-          <input id="name" type="text" class="form-control" name="name" />
-        </div>
-      </div>
-      <div class="card-header bg-primary admincardheader">
-        <div class="form-group">
-          <button class="btn btn-dark mt-2 submit">Sil</button>
-        </div>
-      </div>
-      </form>
     </div>
   </div>
 </div>

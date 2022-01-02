@@ -1,9 +1,9 @@
 $(() => {
-  function updateSelectBox({ type, id, name, className }) {
+  function updateSelectBox({ type, id, name, className, queryName }) {
     if (type === "add")
       $(`.${className}`).each(function () {
         $(this).append(
-          `<option value='${id}'  query-name="<%= category.queryName %>">${name}</option>`
+          `<option value='${id}'  query-name="${queryName}">${name}</option>`
         );
       });
 
@@ -14,6 +14,9 @@ $(() => {
   }
 
   async function fillBrand(cs, queryName) {
+    if (!queryName) return;
+    if (!$(cs).children());
+
     const brands = (await axios.get(`/api/brand-from-category/${queryName}`))
       .data;
     $(cs).children().remove();
@@ -63,6 +66,7 @@ $(() => {
         type: "add",
         id: response._id,
         name: response.name,
+        queryName: response.queryName,
         className: "category",
       });
     } catch (error) {
@@ -81,7 +85,6 @@ $(() => {
         id: categoryId,
         className: "category",
       });
-
       await updateCategoryWithBrand();
 
       toastr["success"]("Successfully deleted");

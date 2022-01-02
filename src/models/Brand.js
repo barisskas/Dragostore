@@ -6,6 +6,8 @@ const BrandSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
+      lowercase: true,
+      trim: true,
     },
     queryName: String,
     category: {
