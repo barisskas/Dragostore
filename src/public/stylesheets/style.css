@@ -10,6 +10,8 @@ body {
 .submit {
   display: block;
   margin-left: auto;
+  transition: 0.5;
+  opacity: 0;
 }
 
 .tema {
@@ -18,15 +20,18 @@ body {
   color: #fff;
 }
 .adminincard {
-  transition: 0.3s;
+  transition: 1s;
 }
 .admincardheader {
-  display: none;
-  transition: 0.5s;
+  opacity: 0;
+  transition: 1s;
+  height: 0;
 }
 .adminincard:hover {
   border: 1px solid #0d6efd;
 }
-.adminincard:hover .admincardheader {
-  display: block;
+.adminincard:hover .admincardheader,
+.adminincard:hover .submit {
+  opacity: 1;
+  height: auto;
 }
