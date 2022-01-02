@@ -11,15 +11,22 @@ body {
   display: block;
   margin-left: auto;
 }
-.admincard {
-  border: 0px solid #0d6efd;
-}
-.admincard:hover {
-  border: 1px solid #0d6efd;
-  transition: 0.2s;
-}
+
 .tema {
   background-color: #15161a;
   text-shadow: 0 1px 3px #4a536c;
   color: #fff;
+}
+.adminincard {
+  transition: 0.3s;
+}
+.admincardheader {
+  display: none;
+  transition: 0.5s;
+}
+.adminincard:hover {
+  border: 1px solid #0d6efd;
+}
+.adminincard:hover .admincardheader {
+  display: block;
 }

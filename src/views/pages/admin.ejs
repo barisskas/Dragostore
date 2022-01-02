@@ -1,23 +1,31 @@
 <div class="container p-3 my-3 text-white tema">
   <div class="row">
     <div class="col-lg-3 card-item mx-auto p-3 m-2 admincard">
-      <h4>Kategori Ekle</h4>
-      <hr />
-      <form id="categoryFormAdd">
-        <div class="form-group">
-          <label for="name">Kategori İsmi</label>
-          <input
-            id="name"
-            type="text"
-            class="form-control"
-            name="name"
-            placeholder="Ekran Kartları"
-          />
+      <div class="card text-white bg-dark mb-3 adminincard" style="max-width: 18rem">
+        <div class="card-body">
+        <h4>Kategori Ekle</h4>
+        <hr />
+        <form id="categoryFormAdd">
+          <div class="form-group">
+            <label for="name">Kategori</label>
+            <input
+              id="name"
+              type="text"
+              class="form-control"
+              name="name"
+              placeholder="Ekran Kartları"
+            />
+          </div>
         </div>
-        <div class="form-group">
-          <button class="btn btn-primary mt-2 submit">Kaydet</button>
-        </div>
-      </form>
+          <div class="card-header bg-primary admincardheader">
+            <div class="form-group">
+              <button class="btn btn-dark mt-2 submit">Kaydet</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card text-white bg-dark mb-3 adminincard" style="max-width: 18rem">
+        <div class="card-body">
       <h4>Kategori Sil</h4>
       <hr />
       <form id="categoryFormDelete">
@@ -34,11 +42,15 @@
             <% }) %>
           </select>
         </div>
+      </div>
+        <div class="card-header bg-primary admincardheader">
         <div class="form-group">
-          <button class="btn btn-primary mt-2 submit">Sil</button>
+          <button class="btn btn-dark mt-2 submit">Sil</button>
         </div>
+      </div>
       </form>
     </div>
+  </div>
     <div class="col-lg-3 card-item mx-auto p-3 m-2 admincard">
       <h4>Marka Ekle</h4>
       <hr />
