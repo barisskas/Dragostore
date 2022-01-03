@@ -17,7 +17,8 @@ router.get("/admin", async (req, res) => {
 });
 
 router.get("/category/:name", function (req, res) {
-  res.locals.categories = categories;
+  res.locals.categories = fnCategory.get();
+  res.render("pages/category");
   const categoryName = req.params.name;
 
   // Category.
