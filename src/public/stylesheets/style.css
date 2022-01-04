@@ -28,7 +28,7 @@ body {
   height: 0;
 }
 .adminincard:hover {
-  border: 1px solid #0d6efd;
+  border: 1px solid #2196f3;
 }
 .adminincard:hover .admincardheader,
 .adminincard:hover .submit {
@@ -80,8 +80,9 @@ body {
   width: 0%;
   height: 1px;
   transition: 0.5s;
-
-  background-color: #007bff;
+  background-color: #2196f3;
+  opacity: 1;
+  box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
 }
 .mylist li:hover::after {
   width: 100%;
@@ -118,8 +119,10 @@ body {
 
 .footer-x .item.social > a:hover {
   opacity: 0.9;
-  color: #007bff;
+  color: #2196f3;
   transform: scale(1.2);
+  opacity: 1;
+  box-shadow: 0 0 10px #2196f3, 0 0 4px #2196f3, 0 0 80px #2196f3;
 }
 
 .footer-x .copyright {
@@ -128,4 +131,12 @@ body {
   opacity: 0.3;
   font-size: 13px;
   margin-bottom: 0;
+}
+.hrline {
+  color: #2196f3;
+  opacity: 1;
+  text-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+}
+.bg-neonBlue {
+  background-color: #2196f3;
 }
