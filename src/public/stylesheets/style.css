@@ -161,5 +161,7 @@ body {
 }
 .product-card {
   margin-top: 40px;
-  background-color: #485460 !important;
+
+  background: linear-gradient(0deg, #212529, #485460, #212529);
+  color: white;
 }

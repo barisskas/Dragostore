@@ -1,17 +1,18 @@
-<div class="container-fluid mt-5">
+<div class="container mt-5">
   <div class="row">
-    <div class="col-lg-3">a</div>
-    <div class="col-lg-9">
+    <div class="col-lg-4">a</div>
+    <div class="col-lg-8">
       <div class="row">
         <% products.forEach((product)=> { %>
-        <div class="col-lg-3">
-          <div class="card product-card" style="width: 18rem">
+        <div class="col-lg-4">
+          <div class="card product-card adminincard" style="">
             <img src="/images/deneme.png" class="card-img-top" alt="..." />
             <div class="card-body">
               <div class="card-title"><%= product.name %></div>
               <p class="card-text"><%= product.features %></p>
               <div class="card-title"><%= product.price %></div>
             </div>
+            <div class="card-header admincardheader bg-neonBlue">seciniz</div>
           </div>
         </div>
         <% }) %>
