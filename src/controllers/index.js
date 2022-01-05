@@ -30,6 +30,23 @@ const fnCategory = {
   async delete() {
     return await Category.remove();
   },
+
+  async getFromCategoryQueryName(name) {
+    const category = await Category.findOne({ queryName: name });
+    const brands = await Brand.find({ category: category.id }).lean();
+    let allProducts = [];
+
+    for (let i = 0; i < brands.length; i++) {
+      let brand = brands[i];
+      const products = await Product.find({ brand: brand._id });
+      allProducts.push(...products);
+    }
+
+    return {
+      category,
+      products: allProducts,
+    };
+  },
 };
 
 const fnBrand = {

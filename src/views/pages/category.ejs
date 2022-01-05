@@ -1,16 +1,26 @@
-<input type="text" id="categoryName" />
-<button id="saveCategory" onclick="categorySave()">Kategoriyi Kaydet</button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3">a</div>
+    <div class="col-lg-9">
+      <div class="row">
+        <% products.forEach((product)=> { %>
+        <div class="col-lg-3">
+          <div class="card-primary">
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem">
+              <div class="card-body">
+                <div class="card-image"></div>
+                <h5 class="card-title"><%= product.name %></h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<script>
-  async function categorySave() {
-    const categoryName = document.getElementById("categoryName").value;
-
-    await fetch("/category", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ categoryName }),
-    });
-  }
-</script>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+</div>

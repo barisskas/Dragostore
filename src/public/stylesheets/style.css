@@ -152,3 +152,10 @@ body {
   background-color: #2196f3;
   box-shadow: 0 0 1px #2196f3, 0 0 4px #2196f3, 0 0 8px #2196f3;
 }
+.dropdown-menu.show {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.category-list {
+  color: white !important;
+}

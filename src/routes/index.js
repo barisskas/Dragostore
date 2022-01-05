@@ -16,20 +16,15 @@ router.get("/admin", async (req, res) => {
   });
 });
 
-router.get("/category/:name", function (req, res) {
-  res.locals.categories = fnCategory.get();
-  res.render("pages/category");
+router.get("/category/:name", async (req, res) => {
+  res.locals.categories = await fnCategory.get();
   const categoryName = req.params.name;
 
-  // Category.
+  const { products } = await fnCategory.getFromCategoryQueryName(categoryName);
 
-  const foundedCategory = categories.find(
-    (category) => category.queryString === categoryName
-  );
+  // if (!foundedCategory) res.status(404).json({ message: "Not found" });
 
-  if (!foundedCategory) res.status(404).json({ message: "Not found" });
-
-  res.render("pages/category", { category: foundedCategory });
+  res.render("pages/category", { products });
 });
 
 module.exports = router;
