@@ -10,7 +10,7 @@ body {
 .submit {
   display: block;
   margin-left: auto;
-  transition: 0.5;
+  transition: 0.5 ease-out;
   opacity: 0;
 }
 
@@ -20,11 +20,11 @@ body {
   color: #fff;
 }
 .adminincard {
-  transition: 1s;
+  transition: 1s ease-out;
 }
 .admincardheader {
   opacity: 0;
-  transition: 1s;
+  transition: 0.5s ease-out;
   height: 0;
 }
 .adminincard:hover {
