@@ -159,3 +159,7 @@ body {
 .category-list {
   color: white !important;
 }
+.product-card {
+  margin-top: 40px;
+  background-color: #485460 !important;
+}
