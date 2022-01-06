@@ -5,12 +5,14 @@
       <div class="row">
         <% products.forEach((product)=> { %>
         <div class="col-lg-4">
-          <div class="card product-card adminincard" style="">
+          <div class="card product-card adminincard">
             <img src="/images/deneme.png" class="card-img-top" alt="..." />
             <div class="card-body">
-              <div class="card-title"><%= product.name %></div>
+              <div class="card-title product-name"><%= product.name %></div>
               <p class="card-text"><%= product.features %></p>
-              <div class="card-title"><%= product.price %></div>
+              <div class="card-title product-price">
+                <%= product.price+" TL" %>
+              </div>
             </div>
             <div class="card-header admincardheader bg-neonBlue">seciniz</div>
           </div>

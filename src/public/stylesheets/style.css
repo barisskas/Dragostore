@@ -165,3 +165,14 @@ body {
   background: linear-gradient(0deg, #212529, #485460, #212529);
   color: white;
 }
+.product-name {
+  text-transform: uppercase;
+  font-size: large;
+}
+.product-price {
+  color: #2196f3;
+  text-align: center;
+  font-size: x-large;
+  border: 1px solid #2196f3;
+  border-radius: 5px;
+}
