@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4">
+  <nav class="navbar navbar-expand-lg navbar-dark headernavdrop p-4">
     <div class="container-fluid">
       <a class="navbar-brand text-uppercase" href="#">Dragostore</a>
       <button
@@ -16,9 +16,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
           <li class="nav-item text-uppercase">
-            <a class="nav-link active" aria-current="page" href="#"
-              >bilgisayarlar</a
-            >
+            <a class="nav-link active" aria-current="page" href="/">anasayfa</a>
           </li>
           <li class="nav-item dropdown text-uppercase text-white">
             <a
@@ -29,7 +27,7 @@
               data-bs-toggle="dropdown"
               aria-expanded="true"
             >
-              bilgisayar parçaları
+              ürünler
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <% categories.forEach((category)=> { %>
@@ -47,6 +45,9 @@
         <form action="">
           <button id="girisyap" class="btn account">giriş yap</button>
           <button id="kayitol" class="btn account">kayıt ol</button>
+          <button id="kayitol" class="btn account shopping-basket">
+            <i class="fas fa-shopping-cart"></i>sepet
+          </button>
         </form>
       </div>
     </div>

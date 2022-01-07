@@ -81,8 +81,21 @@ const fnBrand = {
 };
 
 const fnProduct = {
-  async get() {
-    return await Product.find().populate("brand");
+  async get(filter) {
+    if (filter) {
+      // const filterObject = Object.entries(getFilterObject).map((f) => ({
+      //   [f]: getFilterObject[f],
+      // }));
+
+      const query = {
+        brand: filter.brandId || undefined,
+        price: {
+          $lt: filter.maxPrice,
+        },
+      };
+
+      return await Product.find(query);
+    }
   },
   async add({ name, price, brand, images, features }) {
     const newProduct = new Product({ name, price, brand, images, features });
