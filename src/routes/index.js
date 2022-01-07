@@ -19,12 +19,15 @@ router.get("/admin", async (req, res) => {
 router.get("/category/:name", async (req, res) => {
   res.locals.categories = await fnCategory.get();
   const categoryName = req.params.name;
+  res.locals.productScript = true;
 
-  const { products } = await fnCategory.getFromCategoryQueryName(categoryName);
+  const { products, brands } = await fnCategory.getFromCategoryQueryName(
+    categoryName
+  );
 
   // if (!foundedCategory) res.status(404).json({ message: "Not found" });
 
-  res.render("pages/category", { products });
+  res.render("pages/category", { products, brands });
 });
 
 module.exports = router;

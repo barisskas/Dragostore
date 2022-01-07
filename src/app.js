@@ -7,6 +7,8 @@ const logger = require("morgan");
 const indexRouter = require("./routes/index");
 const apiRouter = require("./routes/api");
 
+const productMiddleware = require("./middleware/product");
+
 const app = express();
 const expressLayouts = require("express-ejs-layouts");
 
@@ -21,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(expressLayouts);
 
-app.use("/", indexRouter);
+app.use("/", productMiddleware, indexRouter);
 app.use("/api", apiRouter);
 
 // mongodb connection

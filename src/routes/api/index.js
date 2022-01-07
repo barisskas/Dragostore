@@ -106,6 +106,7 @@ router
   .route("/product")
   .get(async (req, res) => {
     try {
+      console.log(req.query);
       const products = await fnProduct.get(req.query);
       res.json(products);
     } catch (error) {
