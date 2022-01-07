@@ -284,3 +284,24 @@ body {
   background-color: #2196f3;
   box-shadow: 0 0 1px #2196f3, 0 0 2px #2196f3, 0 0 3px #2196f3;
 }
+.navbar-nav {
+  position: relative;
+}
+.navbar-nav::before {
+  content: "";
+  background-color: grey;
+  position: absolute;
+  right: -10px;
+  top: 0;
+  width: 1px;
+  height: 100%;
+}
+.navbar-nav::after {
+  content: "";
+  background-color: grey;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+}
