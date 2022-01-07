@@ -276,6 +276,10 @@ body {
   .dropdown-menu.show {
     display: block !important;
   }
+  .navbar-nav::after,
+  .navbar-nav::before {
+    display: none;
+  }
 }
 .fa-shopping-cart {
   margin-right: 5px;
