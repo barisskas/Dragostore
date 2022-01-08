@@ -1,11 +1,11 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-lg-4">
-      <div class="col-lg-12">
+      <div class="col-lg-10 mt-5">
         <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
+          <h5 class="accordion-header" id="headingOne">
             <button
-              class="accordion-button"
+              class="accordion-mybutton"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
@@ -14,70 +14,77 @@
             >
               marka
             </button>
-          </h2>
+          </h5>
           <div
             id="collapseOne"
             class="accordion-collapse collapse show"
             aria-labelledby="headingOne"
             data-bs-parent="#accordionExample"
           >
-            <div class="accordion-body"></div>
-            <% brands.forEach((brand)=> { %>
-            <div class="form-check">
-              <input
-                class="form-check-input brand"
-                type="checkbox"
-                value="<%=brand._id%>"
-                id="<%=brand._id%>"
-              />
-              <label class="form-check-label" for="<%=brand._id%>">
-                <%=brand.name%>
-              </label>
+            <div class="accordion-body">
+              <% brands.forEach((brand)=> { %>
+              <div class="form-check">
+                <input
+                  class="form-check-input brand"
+                  type="checkbox"
+                  value="<%=brand._id%>"
+                  id="<%=brand._id%>"
+                />
+                <label class="form-check-label" for="<%=brand._id%>">
+                  <%=brand.name%>
+                </label>
+              </div>
+              <% }) %>
             </div>
-            <% }) %>
           </div>
         </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-          <button
-            class="accordion-button"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseOne"
-            aria-expanded="true"
-            aria-controls="collapseOne"
+
+        <div class="accordion-item">
+          <h5 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-mybutton"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              fiyat
+            </button>
+          </h5>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample"
           >
-            fiyat
-          </button>
-        </h2>
-        <div
-          id="collapseOne"
-          class="accordion-collapse collapse show"
-          aria-labelledby="headingOne"
-          data-bs-parent="#accordionExample"
-        >
-          <div class="accordion-body">
-            <div class="input-group input-group-sm mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-sm"
-                >min</span
-              >
-              <input
-                type="text"
-                class="form-control"
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-sm"
-              />
-              <span class="input-group-text" id="inputGroup-sizing-sm"
-                >min</span
-              >
-              <input
-                type="text"
-                class="form-control"
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-sm"
-              />
-              <button class="btn account shopping-basket">Ara</button>
+            <div class="accordion-body">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text min-max" id="inputGroup-sizing-sm"
+                  >min</span
+                >
+                <input
+                  type="text"
+                  class="form-control filter-counts"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm "
+                />
+
+                <span class="input-group-text min-max" id="inputGroup-sizing-sm"
+                  >max</span
+                >
+                <input
+                  type="text"
+                  class="form-control filter-counts"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+                <button
+                  class="btn account shopping-basket filtersearch filter-counts"
+                >
+                  Ara
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -92,11 +99,15 @@
             <div class="card-body">
               <div class="card-title product-name"><%= product.name %></div>
               <p class="card-text"><%= product.features %></p>
-              <div class="card-title product-price">
+              <div
+                class="card-title product-price shopping-basket filtersearch"
+              >
                 <%= product.price+" TL" %>
               </div>
             </div>
-            <div class="card-header admincardheader bg-neonBlue">seciniz</div>
+            <div class="card-header admincardheader bg-neonBlue product-select">
+              <h6>seçiniz</h6>
+            </div>
           </div>
         </div>
         <% }) %>

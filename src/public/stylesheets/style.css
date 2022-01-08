@@ -1,9 +1,36 @@
 body {
   background-color: #15161a;
 }
-.swiper-wrapper {
-  height: 600px;
+
+.mySwiper {
   width: 100%;
+  height: 820px;
+}
+
+@media only screen and (max-width: 400px) {
+  .mySwiper {
+    width: 100%;
+    height: 171px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .mySwiper {
+      width: 100%;
+      height: 328px;
+    }
+  }
+  @media only screen and (min-width: 1024px) {
+    .mySwiper {
+      width: 100%;
+      height: 437px;
+    }
+  }
+  @media only screen and (min-width: 1536px) {
+    .mySwiper {
+      width: 100%;
+      height: 656px;
+    }
+  }
 }
 
 /* Submit Right / admin */
@@ -20,20 +47,22 @@ body {
   color: #fff;
 }
 .adminincard {
-  transition: 1s ease-out;
+  transition: 0.5s ease-out;
+  border: 0px solid #2196f3;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .admincardheader {
   opacity: 0;
   transition: 0.5s ease-out;
-  height: 0;
+  height: auto;
+  text-transform: uppercase;
 }
 .adminincard:hover {
-  border: 1px solid #2196f3;
+  border: 2px solid #2196f3;
 }
 .adminincard:hover .admincardheader,
 .adminincard:hover .submit {
   opacity: 1;
-  height: auto;
 }
 
 .footer-x {
@@ -179,7 +208,7 @@ body {
   font-size: large;
 }
 .product-price {
-  color: #2196f3;
+  color: white;
   text-align: center;
   font-size: x-large;
   border: 1px solid #2196f3;
@@ -330,3 +359,47 @@ body {
   left: 0;
   top: 0;
 } */
+.accordion-item {
+  background-color: #15161a;
+  color: white;
+  font-family: inherit;
+}
+.accordion-mybutton {
+  background-color: #15161a;
+  color: white;
+  font-family: inherit;
+  text-transform: uppercase;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+.accordion-button.show {
+  background-color: #15161a;
+}
+
+.accordion-collapse {
+  background-color: #15161a;
+  border-color: #15161a;
+}
+.accordion-header {
+  border-bottom: 1px solid grey;
+}
+
+.filtersearch::after {
+  display: none;
+}
+.filter-counts {
+  margin-right: 20px;
+}
+.min-max {
+  background-color: #2196f3;
+  border: none;
+  color: white;
+}
+.accordion-body {
+  padding: 20px;
+}
+.product-select {
+  text-align: center;
+  font-family: inherit;
+}
