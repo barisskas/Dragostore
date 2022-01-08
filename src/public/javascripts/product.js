@@ -8,14 +8,10 @@ $(() => {
   const minPriceTextbox = $("#minPrice");
   const maxPriceTextbox = $("#maxPrice");
 
-  const categoryNameInput = $("#categoryName");
+  const categoryName = $("#categoryName").attr("category-name");
 
   let brands = [];
-  let url = new URL(
-    `http://localhost:3000/api/product?category=${categoryNameInput.attr(
-      "category-name"
-    )}`
-  );
+  let url = new URL(`${location.origin}/api/product?category=${categoryName}`);
 
   function loading(type) {
     if (type) loadingDiv.css({ display: "flex" });
@@ -26,7 +22,9 @@ $(() => {
     const productHTML = `
     <div class="col-lg-4 product-col">
           <div class="card product-card adminincard">
-            <img src="/images/deneme.png" class="card-img-top" alt="..." />
+            <img src="/images/product/${categoryName}/${
+      product.images[0].url
+    }" class="card-img-top" alt="..." />
             <div class="card-body">
               <div class="card-title product-name">${product.name}</div>
               <p class="card-text">${product.features}</p>

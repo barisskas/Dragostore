@@ -60,12 +60,18 @@
           >
             <div class="accordion-body">
               <div class="input-group input-group-sm mb-3">
+                <input
+                  type="hidden"
+                  id="categoryName"
+                  category-name="<%= categoryName %>"
+                />
                 <span class="input-group-text min-max" id="inputGroup-sizing-sm"
                   >min</span
                 >
                 <input
                   type="text"
                   class="form-control filter-counts"
+                  id="minPrice"
                   aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-sm "
                 />
@@ -76,11 +82,12 @@
                 <input
                   type="text"
                   class="form-control filter-counts"
+                  id="maxPrice"
                   aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-sm"
                 />
                 <button
-                  class="btn account shopping-basket filtersearch filter-counts"
+                  class="btn account shopping-basket price-search filter-counts"
                 >
                   Ara
                 </button>
@@ -93,9 +100,13 @@
     <div class="col-lg-8 position-relative">
       <div class="row" id="products">
         <% products.forEach((product)=> { %>
-        <div class="col-lg-4">
+        <div class="col-lg-4 product-col">
           <div class="card product-card adminincard">
-            <img src="/images/deneme.png" class="card-img-top" alt="..." />
+            <img
+              src="/images/product/<%= categoryName %>/<%= product.images[0].url%>"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <div class="card-title product-name"><%= product.name %></div>
               <p class="card-text"><%= product.features %></p>

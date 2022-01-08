@@ -427,3 +427,8 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.product-col img {
+  height: 100%;
+  object-fit: contain;
+}

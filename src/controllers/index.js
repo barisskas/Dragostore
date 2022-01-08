@@ -81,21 +81,24 @@ const fnBrand = {
 };
 
 const fnProduct = {
-  async get({ brandIds, minPrice, maxPrice }) {
-    let filter = {};
-    if (minPrice || maxPrice)
-      filter = {
-        price: {
-          $lt: maxPrice || 0,
-          $gt: minPrice || 9999999,
-        },
-      };
-
-    if (brandIds) filter.brand = { $in: JSON.parse(brandIds) };
-
+  async get({ brandIds, minPrice, maxPrice, category }) {
+    brandIds = brandIds ? JSON.parse(brandIds) : [];
     console.log(brandIds);
+    let { products } = await fnCategory.getFromCategoryQueryName(category);
 
-    return await Product.find(filter);
+    products = products.filter((product) => {
+      return (
+        product.price > (Number(minPrice) || 0) &&
+        product.price < (Number(maxPrice) || 999999)
+      );
+    });
+
+    if (brandIds && brandIds.length)
+      products = products.filter((product) => {
+        return brandIds.includes(String(product.brand));
+      });
+
+    return products;
   },
   async add({ name, price, brand, images, features }) {
     const newProduct = new Product({ name, price, brand, images, features });

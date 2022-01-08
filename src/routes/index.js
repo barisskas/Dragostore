@@ -15,6 +15,12 @@ router.get("/admin", async (req, res) => {
     brands: await fnBrand.get(),
   });
 });
+router.get("/product", async (req, res) => {
+  res.locals.categories = await fnCategory.get();
+  res.render("pages/product", {
+    brands: await fnBrand.get(),
+  });
+});
 
 router.get("/category/:name", async (req, res) => {
   res.locals.categories = await fnCategory.get();
@@ -27,7 +33,7 @@ router.get("/category/:name", async (req, res) => {
 
   // if (!foundedCategory) res.status(404).json({ message: "Not found" });
 
-  res.render("pages/category", { products, brands });
+  res.render("pages/category", { products, brands, categoryName });
 });
 
 module.exports = router;
