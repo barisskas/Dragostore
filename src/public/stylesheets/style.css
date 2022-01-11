@@ -407,7 +407,8 @@ body {
 } */
 
 .swiper-slide {
-  height: 100% !important;
+  height: 100%;
+  overflow: auto;
 }
 
 .swiper-slide img {
