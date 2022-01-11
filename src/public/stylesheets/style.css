@@ -415,9 +415,8 @@ body {
 }
 
 .product-col {
-  margin-top: 10px;
+  height: 100%;
 }
-
 .product-col .product-card {
   height: 100%;
 }
@@ -436,4 +435,8 @@ body {
   position: absolute;
   left: 5px;
   top: -20px;
+}
+.card-cover {
+  text-decoration: none;
+  margin-top: 20px;
 }

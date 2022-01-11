@@ -100,27 +100,31 @@
     <div class="col-lg-8 position-relative">
       <div class="row" id="products">
         <% products.forEach((product)=> { %>
-        <div class="col-lg-4 product-col">
-          <div class="card product-card adminincard">
-            <img
-              src="/images/product/<%= categoryName %>/<%= product.images[0].url%>"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <div class="card-title product-name"><%= product.name %></div>
-              <p class="card-text"><%= product.features %></p>
+        <a class="col-lg-4 card-cover" href="/product/<%= product.queryName %>">
+          <div class="col-lg-12 product-col">
+            <div class="card product-card adminincard">
+              <img
+                src="/images/product/<%= categoryName %>/<%= product.images[0].url%>"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <div class="card-title product-name"><%= product.name %></div>
+                <p class="card-text"><%= product.features %></p>
+                <div
+                  class="card-title product-price shopping-basket filtersearch"
+                >
+                  <%= product.price+" TL" %>
+                </div>
+              </div>
               <div
-                class="card-title product-price shopping-basket filtersearch"
+                class="card-header admincardheader bg-neonBlue product-select"
               >
-                <%= product.price+" TL" %>
+                <h6>seçiniz</h6>
               </div>
             </div>
-            <div class="card-header admincardheader bg-neonBlue product-select">
-              <h6>seçiniz</h6>
-            </div>
           </div>
-        </div>
+        </a>
         <% }) %>
       </div>
       <div id="loading">

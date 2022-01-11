@@ -100,6 +100,9 @@ const fnProduct = {
 
     return products;
   },
+  async getFromQueryName(queryName) {
+    return await Product.findOne({ queryName });
+  },
   async add({ name, price, brand, images, features }) {
     const newProduct = new Product({ name, price, brand, images, features });
     return await newProduct.save();

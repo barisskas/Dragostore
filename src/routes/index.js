@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { fnCategory, fnBrand } = require("../controllers");
+const { fnCategory, fnBrand, fnProduct } = require("../controllers");
 
 /* GET home page. */
 router.get("/", async (req, res) => {
@@ -15,10 +15,13 @@ router.get("/admin", async (req, res) => {
     brands: await fnBrand.get(),
   });
 });
-router.get("/product", async (req, res) => {
+router.get("/product/:queryName", async (req, res) => {
+  console.log(req.params);
+  const { queryName } = req.params;
+
   res.locals.categories = await fnCategory.get();
   res.render("pages/product", {
-    brands: await fnBrand.get(),
+    product: await fnProduct.getFromQueryName(queryName),
   });
 });
 
