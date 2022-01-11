@@ -72,7 +72,28 @@
     <script src="/javascripts/main.js"></script>
     <% if(productScript){ %>
     <script src="/javascripts/product.js"></script>
-
     <% } %>
+
+    <!-- Initialize Swiper -->
+    <script>
+      window.addEventListener(
+        "load",
+        () => {
+          new Swiper(".mySwiper", {
+            direction: "vertical",
+            autoHeight: true,
+            autoplay: {
+              delay: 3 * 1000,
+            },
+            loop: true,
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+          });
+        },
+        false
+      );
+    </script>
   </body>
 </html>

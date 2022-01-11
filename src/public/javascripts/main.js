@@ -1,18 +1,4 @@
 $(() => {
-  /* swiper slide */
-  new Swiper(".mySwiper", {
-    direction: "vertical",
-    autoHeight: true,
-    autoplay: {
-      delay: 3 * 1000,
-    },
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
-
   function updateSelectBox({ type, id, name, className, queryName }) {
     if (type === "add")
       $(`.${className}`).each(function () {
