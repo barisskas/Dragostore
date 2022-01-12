@@ -11,9 +11,6 @@
             <div class="carousel-item active">
               <img src="/images/deneme/1.png" class="d-block w-100" alt="..." />
             </div>
-            <div class="carousel-item">
-              <img src="/images/deneme/2.png" class="d-block w-100" alt="..." />
-            </div>
           </div>
           <button
             class="carousel-control-prev"
@@ -37,15 +34,11 @@
       </div>
       <div class="col-md-7 p-4">
         <ul class="product-feature-list">
-          <li><%= product.name %></li>
-          <li><%= product.features%></li>
-          <li><%= product.price %> TL</li>
+          <li><h2 class="product-model"><%= product.name %></h2></li>
+          <li><p><%= product.features%></p></li>
+          <li><h2 class="product-model"><%= product.price %> TL</h2></li>
           <li>
-            <button
-              class="btn account shopping-basket filtersearch filter-counts add-basket"
-            >
-              sepete ekle
-            </button>
+            <button class="btn btn-primary raunded">sepete ekle</button>
           </li>
         </ul>
       </div>
