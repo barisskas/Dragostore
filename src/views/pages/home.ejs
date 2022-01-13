@@ -40,6 +40,26 @@
   </div>
 <div class="container-fluid"></div>
 
+  <h2 class="category-title my-3">Kategoriler</h2>
+ 
+<div class="container lastitem my-3">
+  <% categories.forEach((category)=> { %>
+      
+        <div class="category-block-out">
+      <a
+        class="category-block"
+        href="/category/<%= category.queryName %>"
+        ><input type="button" class="btn category-list-button" value="<%= category.name %>"></a
+      >
+         </div>
+    <% }) %>
+</div>
+<div class="container">
 
 
+
+
+
+  
+</div>
 </main>

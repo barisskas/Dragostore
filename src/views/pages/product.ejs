@@ -8,9 +8,15 @@
           data-bs-ride="carousel"
         >
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="/images/deneme/1.png" class="d-block w-100" alt="..." />
+            <% product.images.forEach((image, index) => { %>
+            <div class="carousel-item <%= !index && 'active' %>">
+              <img
+                src="/images/product/<%= categoryName%>/<%= image.url %>"
+                class="d-block w-100"
+                alt="..."
+              />
             </div>
+            <% }) %>
           </div>
           <button
             class="carousel-control-prev"

@@ -47,6 +47,9 @@ const fnCategory = {
       products: allProducts,
     };
   },
+  async getWhereById(id) {
+    return await Category.findById(id);
+  },
 };
 
 const fnBrand = {
@@ -77,6 +80,9 @@ const fnBrand = {
     return await Brand.find({
       category: id,
     });
+  },
+  async getWhereById(id) {
+    return await Brand.findById(id);
   },
 };
 
@@ -124,6 +130,9 @@ const fnProduct = {
   },
   async deleteByName(name) {
     return await Product.findOneAndDelete({ name });
+  },
+  async getWhereLimit(limit) {
+    return await Product.find().sort({ createdAt: 1 }).limit(limit);
   },
 };
 

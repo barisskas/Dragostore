@@ -443,3 +443,109 @@ body {
 .product-model {
   text-transform: uppercase;
 }
+
+.carousel-fade .carousel-inner .carousel-item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+.category-block {
+  text-decoration: none;
+  padding: 5px;
+  display: block;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
+.lastitem {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-template-columns: repeat(3, 1fr);
+}
+.category-list-button {
+  background-color: #15161a;
+  color: white;
+  text-transform: uppercase;
+
+  width: 100%;
+  height: min-content;
+  padding: 15px;
+  text-align: center;
+  border-radius: 5px;
+  transition: 0.1s ease;
+}
+.category-list-button:hover {
+  color: white;
+}
+.category-title {
+  text-align: center;
+}
+.category-block-out {
+  background-color: transparent;
+  margin: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.category-block-out::before {
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: -600%;
+  background: linear-gradient(
+    45deg,
+    red,
+    blue,
+    red,
+    blue,
+    red,
+    blue,
+    red,
+    blue
+  );
+  width: 300%;
+  height: 1200%;
+  z-index: 1;
+  animation: turn 5s ease-in infinite;
+  transform-origin: center;
+  filter: blur(40px);
+}
+@keyframes turn {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media only screen and (max-width: 991px) {
+  .lastitem {
+    display: block;
+  }
+}

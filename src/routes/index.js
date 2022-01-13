@@ -6,7 +6,9 @@ const { fnCategory, fnBrand, fnProduct } = require("../controllers");
 /* GET home page. */
 router.get("/", async (req, res) => {
   res.locals.categories = await fnCategory.get();
-  res.render("pages/home");
+  const lastProducts = await fnProduct.getWhereLimit(5);
+  console.log(lastProducts);
+  res.render("pages/home", { lastProducts });
 });
 
 router.get("/admin", async (req, res) => {
@@ -18,10 +20,16 @@ router.get("/admin", async (req, res) => {
 router.get("/product/:queryName", async (req, res) => {
   console.log(req.params);
   const { queryName } = req.params;
+  const product = await fnProduct.getFromQueryName(queryName);
+  const brand = await fnBrand.getWhereById(product.brand);
+  const category = await fnCategory.getWhereById(brand.category);
+
+  console.log({ brand, category });
 
   res.locals.categories = await fnCategory.get();
   res.render("pages/product", {
     product: await fnProduct.getFromQueryName(queryName),
+    categoryName: category.queryName,
   });
 });
 
