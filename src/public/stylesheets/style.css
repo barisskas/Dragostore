@@ -497,6 +497,8 @@ body {
 }
 .category-title {
   text-align: center;
+  color: #2196f3;
+  text-transform: uppercase;
 }
 .category-block-out {
   background-color: transparent;
@@ -530,7 +532,7 @@ body {
   z-index: 1;
   animation: turn 5s ease-in infinite;
   transform-origin: center;
-  filter: blur(40px);
+  filter: blur(30px);
 }
 @keyframes turn {
   0% {
@@ -610,4 +612,23 @@ body {
 
 .card-title:nth-child(1) {
   height: 50px;
+}
+.card-text {
+  height: 200px;
+}
+.swiper-slide {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.footer-x {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
