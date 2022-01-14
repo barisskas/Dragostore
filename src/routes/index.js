@@ -6,7 +6,7 @@ const { fnCategory, fnBrand, fnProduct } = require("../controllers");
 /* GET home page. */
 router.get("/", async (req, res) => {
   res.locals.categories = await fnCategory.get();
-  const lastProducts = await fnProduct.getWhereLimit(5);
+  const lastProducts = await fnProduct.getWhereLimit(15);
   console.log(lastProducts);
   res.render("pages/home", { lastProducts });
 });
