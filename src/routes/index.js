@@ -17,6 +17,18 @@ router.get("/admin", async (req, res) => {
     brands: await fnBrand.get(),
   });
 });
+router.get("/register", async (req, res) => {
+  res.locals.categories = await fnCategory.get();
+  res.render("pages/register", {
+    brands: await fnBrand.get(),
+  });
+});
+router.get("/login", async (req, res) => {
+  res.locals.categories = await fnCategory.get();
+  res.render("pages/login", {
+    brands: await fnBrand.get(),
+  });
+});
 router.get("/product/:queryName", async (req, res) => {
   console.log(req.params);
   const { queryName } = req.params;

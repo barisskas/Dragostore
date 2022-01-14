@@ -503,6 +503,7 @@ body {
   margin: 10px;
   overflow: hidden;
   position: relative;
+  border-radius: 10px;
 }
 .category-block-out::before {
   content: "";
@@ -511,14 +512,18 @@ body {
   top: -600%;
   background: linear-gradient(
     45deg,
-    red,
-    blue,
-    red,
-    blue,
-    red,
-    blue,
-    red,
-    blue
+    #e84118,
+    #0097e6,
+    #32ff7e,
+    #e84118,
+    #0097e6,
+    #32ff7e,
+    #e84118,
+    #0097e6,
+    #32ff7e,
+    #e84118,
+    #0097e6,
+    #32ff7e
   );
   width: 300%;
   height: 1200%;
@@ -548,4 +553,61 @@ body {
   .lastitem {
     display: block;
   }
+}
+
+/* card carousel */
+.home {
+  width: 100%;
+  height: 100%;
+}
+
+.home .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.home .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home .slide-card-up {
+  display: flex;
+
+  margin-top: 0 !important;
+}
+.home img {
+  object-fit: contain;
+}
+.swiper-pagination > .swiper-pagination-bullet {
+  opacity: 1;
+  border: grey solid 3px;
+  background-color: transparent;
+  border-radius: 20%;
+  box-sizing: content-box;
+}
+.swiper-pagination > .swiper-pagination-bullet-active {
+  background-color: #2196f3;
+  border-color: #2196f3;
+}
+
+.card-title:nth-child(1) {
+  height: 50px;
 }

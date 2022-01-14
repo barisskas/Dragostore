@@ -80,7 +80,7 @@
         "load",
         () => {
           new Swiper(".mySwiper", {
-            direction: "vertical",
+            direction: "horizontal",
             autoHeight: true,
             autoplay: {
               delay: 3 * 1000,
@@ -94,6 +94,20 @@
         },
         false
       );
+    </script>
+    <script>
+      var swiper = new Swiper(".mySwiper-card", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        freeMode: true,
+        autoplay: {
+          delay: 3 * 1000,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
     </script>
   </body>
 </html>

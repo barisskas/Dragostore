@@ -1,6 +1,6 @@
 <main>
   <!-- Swiper -->
-  <div class="swiper mySwiper">
+  <div class="home swiper mySwiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <picture class="img-fluid">
@@ -38,7 +38,11 @@
     </div>
     <div class="swiper-pagination"></div>
   </div>
-<div class="container-fluid"></div>
+
+
+
+
+
 
   <h2 class="category-title my-3">Kategoriler</h2>
  
@@ -55,11 +59,40 @@
     <% }) %>
 </div>
 <div class="container">
-
-
-
-
-
-  
+  <h2 class="category-title my-3">Öne çıkan ürünler</h2>
+  <div class="home swiper mySwiper-card">
+    <div class="swiper-wrapper">
+        <% lastProducts.forEach((product)=> { %>
+          <div class="swiper-slide ">
+          <a class="col-lg-10 card-cover " href="/product/<%= product.queryName %>">
+            <div class="col-lg-12 product-col">
+              <div class="card product-card adminincard">
+                <img
+                  src="/images/product/anakartlar/<%= product.images[0].url%>"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <div class="card-title product-name"><%= product.name %></div>
+                  <p class="card-text"><%= product.features %></p>
+                  <div
+                    class="card-title product-price shopping-basket filtersearch"
+                  >
+                    <%= product.price+" TL" %>
+                  </div>
+                </div>
+                <div
+                  class="card-header admincardheader bg-neonBlue product-select"
+                >
+                  <h6>seçiniz</h6>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+          <% }) %>
+    </div>
+   
+  </div>
 </div>
 </main>
