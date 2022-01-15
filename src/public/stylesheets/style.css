@@ -10,7 +10,7 @@ body {
 .submit {
   display: block;
   margin-left: auto;
-  transition: 0.5 ease-out;
+  transition: 0.5 ease;
   opacity: 0;
 }
 
@@ -20,13 +20,13 @@ body {
   color: #fff;
 }
 .adminincard {
-  transition: 0.5s ease-out;
+  transition: 0.1s ease;
   border: 0px solid #2196f3;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .admincardheader {
   opacity: 0;
-  transition: 0.5s ease-out;
+  transition: 0.5s ease;
   height: auto;
   text-transform: uppercase;
 }
@@ -371,7 +371,9 @@ body {
 }
 .accordion-body {
   padding: 20px;
+  text-transform: uppercase;
 }
+
 .product-select {
   text-align: center;
   font-family: inherit;
@@ -530,7 +532,7 @@ body {
   width: 300%;
   height: 1200%;
   z-index: 1;
-  animation: turn 5s ease-in infinite;
+  animation: turn 4s ease infinite;
   transform-origin: center;
   filter: blur(30px);
 }
@@ -632,3 +634,17 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+.thumbnail-category {
+  width: 100px !important;
+  height: 100px !important;
+  background-color: #2196f3;
+  border: none !important;
+}
+.images-product {
+  display: flex;
+}
+.carousel {
+  border: #2196f3 2px solid;
+}
+
+/* product slider*/

@@ -205,4 +205,32 @@ $(() => {
       queryName
     );
   });
+
+  /* Register */
+  $("#register").on("click", async function (e) {
+    e.preventDefault();
+    const form = $(this).parent("form");
+
+    const name = $(form).find("input[name='name']").val();
+    const email = $(form).find("input[name='email']").val();
+    const password = $(form).find("input[name='password']").val();
+    const confirmPasword = $(form).find("input[name='password2']").val();
+    if (password != confirmPasword)
+      return toastr["error"]("büle passwordun icine soxam");
+
+    try {
+      await axios.post("/api/register", {
+        name,
+        email,
+        password,
+      });
+
+      toastr["success"]("Successfully register");
+      setTimeout(() => {
+        window.location = "/login";
+      }, 2 * 1000);
+    } catch (error) {
+      toastr["error"](error.response.data.message || error.message);
+    }
+  });
 });

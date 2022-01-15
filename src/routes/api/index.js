@@ -1,6 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
+const User = require("../../models/User");
+const bcrypt = require("bcrypt");
+const Category = require("../../models/Category");
+const Brand = require("../../models/Brand");
+
 const { fnCategory, fnBrand, fnProduct } = require("../../controllers");
 
 // #region Category API
@@ -156,5 +161,45 @@ router.delete("/product-name/:name", async (req, res) => {
   }
 });
 // #endregion
+router.post("/register", async (req, res) => {
+  const { name, email, password } = req.body;
+  let errors = [];
+  if (!name || !email || !password)
+    return res.status(403).json({ message: "lütfen tüm alanları doldurunuz." });
+
+  if (password.length < 6)
+    return res
+      .status(403)
+      .json({ message: "password alanı 6 karakterden büyük olmalı" });
+
+  const user = await User.findOne({ email });
+  if (user)
+    return res.status(403).json({ message: "büle bi kullanici kayitli" });
+
+  const newUser = new User({
+    name,
+    email,
+  });
+
+  const hashPassword = await bcrypt.hash(password, 10);
+  newUser.password = hashPassword;
+
+  res.json(await newUser.save());
+});
+
+router.get("/getBrandId", async (req, res) => {
+  const { brandQueryName, categoryQueryName } = req.query;
+  const categoryId = (await Category.findOne({ queryName: categoryQueryName }))
+    .id;
+
+  console.log(categoryId);
+
+  res.json({
+    brandId: await Brand.findOne({
+      queryName: brandQueryName,
+      category: categoryId,
+    }),
+  });
+});
 
 module.exports = router;

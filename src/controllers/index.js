@@ -132,7 +132,10 @@ const fnProduct = {
     return await Product.findOneAndDelete({ name });
   },
   async getWhereLimit(limit) {
-    return await Product.find().sort({ createdAt: 1 }).limit(limit);
+    return await Product.find()
+      .populate("brand")
+      .sort({ createdAt: 1 })
+      .limit(limit);
   },
 };
 

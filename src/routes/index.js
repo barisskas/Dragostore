@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { fnCategory, fnBrand, fnProduct } = require("../controllers");
+const Brand = require("../models/Brand");
 
 /* GET home page. */
 router.get("/", async (req, res) => {
@@ -30,19 +31,22 @@ router.get("/login", async (req, res) => {
   });
 });
 router.get("/product/:queryName", async (req, res) => {
-  console.log(req.params);
-  const { queryName } = req.params;
-  const product = await fnProduct.getFromQueryName(queryName);
-  const brand = await fnBrand.getWhereById(product.brand);
-  const category = await fnCategory.getWhereById(brand.category);
+  try {
+    const { queryName } = req.params;
+    const product = await fnProduct.getFromQueryName(queryName);
+    const brand = await fnBrand.getWhereById(product.brand);
+    const category = await fnCategory.getWhereById(brand.category);
 
-  console.log({ brand, category });
+    console.log({ brand, category });
 
-  res.locals.categories = await fnCategory.get();
-  res.render("pages/product", {
-    product: await fnProduct.getFromQueryName(queryName),
-    categoryName: category.queryName,
-  });
+    res.locals.categories = await fnCategory.get();
+    res.render("pages/product", {
+      product: await fnProduct.getFromQueryName(queryName),
+      categoryName: category.queryName,
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 router.get("/category/:name", async (req, res) => {

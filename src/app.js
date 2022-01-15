@@ -46,4 +46,17 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
+const Product = require("./models/Product");
+(async function () {
+  const products = await Product.find();
+  for (let i = 0; i < products.length; i++) {
+    const product = products[i];
+    product.images = product.images.map((image) => ({
+      url: image.url.replace("jpg", "png"),
+    }));
+
+    await product.save();
+  }
+})();
+
 module.exports = app;
