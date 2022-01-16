@@ -107,11 +107,15 @@
           clickable: true,
         },
         breakpoints: {
+          1500: {
+            slidesPerView: 3,
+          },
           992: {
             slidesPerView: 2,
           },
           100: {
             slidesPerView: 1,
+            spaceBetween: 300,
           },
 
           // when window width is <= 499px
@@ -119,6 +123,7 @@
           // when window width is <= 999px
         },
       });
+      var adminname = "baris";
     </script>
     <script>
       var swiper = new Swiper(".mySwiper", {
