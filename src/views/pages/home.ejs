@@ -64,8 +64,8 @@
     <div class="swiper-wrapper">
         <% lastProducts.forEach((product)=> { %>
           <div class="swiper-slide ">
-          <a class="col card-cover " href="/product/<%= product.queryName %>">
-            <div class="col product-col">
+          <a class="col-10 card-cover " href="/product/<%= product.queryName %>">
+            <div class="col-12 product-col">
               <div class="card product-card adminincard highlight-item">
                 <img
                   src="/images/product/<%= product?.brand?.category.queryName %>/<%= product.images[0].url%>"
