@@ -96,7 +96,7 @@
       );
 
       new Swiper(".mySwiper-card", {
-        slidesPerView: 1,
+        slidesPerView: 3,
         spaceBetween: 30,
         freeMode: true,
         autoplay: {
@@ -107,12 +107,11 @@
           clickable: true,
         },
         breakpoints: {
-          3000: {
-            slidesPerView: 3,
-          },
-
           992: {
             slidesPerView: 2,
+          },
+          100: {
+            slidesPerView: 1,
           },
 
           // when window width is <= 499px
