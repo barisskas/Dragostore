@@ -19,10 +19,12 @@ $(() => {
   }
 
   function addProduct(product) {
-    const productHTML = `
-    <div class="col-lg-4 product-col">
+    const productHTML = String.raw`
+      <a class="col-lg-4 col-md-6 col-sm-12 card-cover" href="/product/${
+        product.queryName
+      }">
+    <div class="col-12 product-col">
           <div class="card product-card adminincard">
-          <a href="/product/${product.queryName}">
             <img src="/images/product/${categoryName}/${
       product.images[0].url
     }" class="card-img-top" alt="..." />
@@ -38,9 +40,9 @@ $(() => {
             <div class="card-header admincardheader bg-neonBlue product-select">
               <h6>seçiniz</h6>
             </div>
-            </a>
           </div>
         </div>
+      </a>
     `;
 
     productsDiv.append(productHTML);

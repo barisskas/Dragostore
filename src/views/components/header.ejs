@@ -1,13 +1,8 @@
 <header class="sticky-top">
-  <nav class="navbar navbar-expand-lg navbar-dark headernavdrop p-4">
+  <nav class="navbar navbar-expand-lg navbar-dark headernavdrop">
     <div class="container-fluid">
       <a class="navbar-brand text-uppercase logo" href="/"
-        ><img
-          src="/images/logo/logo.png"
-          alt=""
-          class="img-fluid"
-          width="250"
-          height="100"
+        ><img src="/images/logo/logo.png" alt="" class="img-fluid"
       /></a>
       <button
         class="navbar-toggler"
@@ -54,13 +49,28 @@
             >
           </li>
         </ul>
-        <form action="">
-          <button id="girisyap" class="btn account">giriş yap</button>
-          <button id="kayitol" class="btn account">kayıt ol</button>
-          <button id="kayitol" class="btn account shopping-basket">
+        <%if(!user){ %>
+        <a href="/login"
+          ><div id="loginBtn" class="btn account">giriş yap</div></a
+        >
+        <a href="/register"
+          ><div id="registerBtn" class="btn account">kayıt ol</div></a
+        >
+
+        <% } else { %>
+        <p class="text-white">Welcome, <%= user.fullName %></p>
+        <a href="/basket"
+          ><div id="basketBtn" class="btn account shopping-basket">
             <i class="fas fa-shopping-cart"></i>sepet
-          </button>
-        </form>
+          </div></a
+        >
+
+        <a href="/api/logout"
+          ><div id="basketBtn" class="btn account shopping-basket">
+            çıkış yap
+          </div></a
+        >
+        <% } %>
       </div>
     </div>
   </nav>

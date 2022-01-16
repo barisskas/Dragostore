@@ -30,6 +30,12 @@ router.get("/login", async (req, res) => {
     brands: await fnBrand.get(),
   });
 });
+router.get("/basket", async (req, res) => {
+  res.locals.categories = await fnCategory.get();
+  res.render("pages/basket", {
+    brands: await fnBrand.get(),
+  });
+});
 router.get("/product/:queryName", async (req, res) => {
   try {
     const { queryName } = req.params;

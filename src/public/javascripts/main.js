@@ -211,7 +211,7 @@ $(() => {
     e.preventDefault();
     const form = $(this).parent("form");
 
-    const name = $(form).find("input[name='name']").val();
+    const fullName = $(form).find("input[name='name']").val();
     const email = $(form).find("input[name='email']").val();
     const password = $(form).find("input[name='password']").val();
     const confirmPasword = $(form).find("input[name='password2']").val();
@@ -220,7 +220,7 @@ $(() => {
 
     try {
       await axios.post("/api/register", {
-        name,
+        fullName,
         email,
         password,
       });
@@ -229,6 +229,57 @@ $(() => {
       setTimeout(() => {
         window.location = "/login";
       }, 2 * 1000);
+    } catch (error) {
+      toastr["error"](error.response.data.message || error.message);
+    }
+  });
+
+  // login
+  $("#login").on("click", async function (e) {
+    e.preventDefault();
+    const form = $(this).parent("form");
+
+    const email = $(form).find("input[name='email']").val();
+    const password = $(form).find("input[name='password']").val();
+    try {
+      await axios.post("/api/login", {
+        email,
+        password,
+      });
+
+      toastr["success"]("Successfully login");
+      setTimeout(() => {
+        window.location = "/";
+      }, 2 * 1000);
+    } catch (error) {
+      toastr["error"](error.response.data.message || error.message);
+    }
+  });
+
+  //add product
+  $(".add-basket").on("click", async function (e) {
+    e.preventDefault();
+    const productId = $(this).attr("id");
+    try {
+      await axios.get(`/api/add-basket?productId=${productId}`);
+
+      toastr["success"]("Successfully product added");
+      $(this).text("sepetten çıkar");
+      $(this).toggleClass("add-basket", "remove-basket");
+    } catch (error) {
+      toastr["error"](error.response.data.message || error.message);
+    }
+  });
+
+  $(".remove-basket").on("click", async function (e) {
+    e.preventDefault();
+    const productId = $(this).attr("id");
+    try {
+      await axios.get(`/api/remove-basket?productId=${productId}`);
+
+      toastr["success"]("Successfully product removed");
+      $(this).text("sepete ekle");
+      $(this).toggleClass("remove-basket", "add-basket");
     } catch (error) {
       toastr["error"](error.response.data.message || error.message);
     }

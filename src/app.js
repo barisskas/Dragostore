@@ -3,6 +3,8 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const passport = require("passport");
+const session = require("express-session");
 
 const indexRouter = require("./routes/index");
 const apiRouter = require("./routes/api");
@@ -22,6 +24,26 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(expressLayouts);
+
+require("./strategies/local");
+//session
+app.use(
+  session({
+    secret: "secred",
+
+    cookie: {
+      maxAge: 6000000,
+    },
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use((req, res, next) => {
+  console.log(req.user);
+  res.locals.user = req.user;
+  next();
+});
 
 app.use("/", productMiddleware, indexRouter);
 app.use("/api", apiRouter);
@@ -45,18 +67,4 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
-
-const Product = require("./models/Product");
-(async function () {
-  const products = await Product.find();
-  for (let i = 0; i < products.length; i++) {
-    const product = products[i];
-    product.images = product.images.map((image) => ({
-      url: image.url.replace("jpg", "png"),
-    }));
-
-    await product.save();
-  }
-})();
-
 module.exports = app;

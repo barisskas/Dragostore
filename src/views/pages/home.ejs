@@ -1,6 +1,6 @@
 <main>
   <!-- Swiper -->
-  <div class="home-slide  mySwiperHomePage">
+  <div class=" home-slide  mySwiperHomePage">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <picture class="img-fluid">
@@ -66,9 +66,9 @@
           <div class="swiper-slide ">
           <a class="col-lg-10 card-cover " href="/product/<%= product.queryName %>">
             <div class="col-lg-12 product-col">
-              <div class="card product-card adminincard">
+              <div class="card product-card adminincard highlight-item">
                 <img
-                  src="/images/product/anakartlar/<%= product.images[0].url%>"
+                  src="/images/product/<%= product?.brand?.category.queryName %>/<%= product.images[0].url%>"
                   class="card-img-top"
                   alt="..."
                 />

@@ -91,10 +91,20 @@
         <ul class="product-feature-list">
           <li><h2 class="product-model"><%= product.name %></h2></li>
           <li><p><%= product.features%></p></li>
-          <li><h2 class="product-model"><%= product.price %> TL</h2></li>
           <li>
-            <button class="btn btn-primary raunded">sepete ekle</button>
+            <h2 class="product-model"><%= product.price.toFixed(2) %> TL</h2>
           </li>
+          <% if(user){%>
+          <li>
+            <button
+              id="<%= product._id %>"
+              class="<%= user.baskets.includes(product._id) ? 'remove-product' : 'add-product'%> add-basket btn btn-primary raunded"
+            >
+              <%= user.baskets.includes(product._id) ? 'sepetten çıkar' :
+              'sepete ekle' %>
+            </button>
+          </li>
+          <% }%>
         </ul>
       </div>
     </div>

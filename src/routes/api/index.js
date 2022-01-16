@@ -5,6 +5,7 @@ const User = require("../../models/User");
 const bcrypt = require("bcrypt");
 const Category = require("../../models/Category");
 const Brand = require("../../models/Brand");
+const passport = require("passport");
 
 const { fnCategory, fnBrand, fnProduct } = require("../../controllers");
 
@@ -161,10 +162,21 @@ router.delete("/product-name/:name", async (req, res) => {
   }
 });
 // #endregion
+
+router.post("/login", function (req, res, next) {
+  passport.authenticate("local", function (err, user, info) {
+    if (info) res.status(403).json({ message: info.message });
+
+    req.logIn(user, function (err) {
+      if (err) return next(err);
+
+      return res.status(200).json({ status: "ok" });
+    });
+  })(req, res, next);
+});
 router.post("/register", async (req, res) => {
-  const { name, email, password } = req.body;
-  let errors = [];
-  if (!name || !email || !password)
+  const { fullName, email, password } = req.body;
+  if (!fullName || !email || !password)
     return res.status(403).json({ message: "lütfen tüm alanları doldurunuz." });
 
   if (password.length < 6)
@@ -177,7 +189,7 @@ router.post("/register", async (req, res) => {
     return res.status(403).json({ message: "büle bi kullanici kayitli" });
 
   const newUser = new User({
-    name,
+    fullName,
     email,
   });
 
@@ -185,6 +197,11 @@ router.post("/register", async (req, res) => {
   newUser.password = hashPassword;
 
   res.json(await newUser.save());
+});
+
+router.get("/logout", function (req, res) {
+  req.logout();
+  res.redirect("/");
 });
 
 router.get("/getBrandId", async (req, res) => {
@@ -200,6 +217,30 @@ router.get("/getBrandId", async (req, res) => {
       category: categoryId,
     }),
   });
+});
+
+router.get("/add-basket", async (req, res) => {
+  const user = req.user;
+
+  const { productId } = req.query;
+
+  if (!user) res.redirect("/");
+
+  user.baskets.push(productId);
+
+  res.json(await user.save());
+});
+
+router.get("/remove-basket", async (req, res) => {
+  const user = req.user;
+
+  const { productId } = req.query;
+
+  if (!user) res.redirect("/");
+
+  res.json(
+    await User.findOneAndUpdate(req.user.id, { $pull: { baskets: productId } })
+  );
 });
 
 module.exports = router;

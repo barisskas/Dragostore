@@ -133,7 +133,12 @@ const fnProduct = {
   },
   async getWhereLimit(limit) {
     return await Product.find()
-      .populate("brand")
+      .populate({
+        path: "brand",
+        populate: {
+          path: "category",
+        },
+      })
       .sort({ createdAt: 1 })
       .limit(limit);
   },

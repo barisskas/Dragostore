@@ -1,33 +1,48 @@
-<div class="col-md-4 col-md-offset-4">
-  <div>
-    <p>Giriş Yap</p>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 p-4 col-md-offset-4 m-auto login-box">
+        <div>
+          <p>Giriş Yap</p>
+        </div>
+        <div class="form-group">
+          <form>
+            <input
+              type="text"
+              name="email"
+              placeholder="E-mail"
+              required=""
+              class="form-control user-text"
+            /><br />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required=""
+              class="form-control user-text"
+            /><br />
+            <input value="Login" id="login" class="btn btn-primary" />
+          </form>
+        </div>
+        <div class="mssg bg-danger">
+          <span id="check"></span>
+        </div>
+        <div id="LangTable"><a href="/profile" id="aa"></a></div>
+        <div>
+          <span class="text-white">Hesabınız yok mu ?</span> &nbsp;<a
+            class="text primary"
+            href="/register"
+            >Hesap Oluştur</a
+          >
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <img
+          src="/images/dragon/1.jpg"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <form action="/login" method="post">
-      <input
-        type="text"
-        name="email"
-        placeholder="E-mail"
-        required=""
-        class="form-control"
-      /><br />
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        required=""
-        class="form-control"
-      /><br />
-      <input type="submit" value="Login" class="btn btn-success" />
-    </form>
-  </div>
-  <div class="mssg bg-danger">
-    <span id="check"></span>
-  </div>
-  <div id="LangTable"><a href="/profile" id="aa"></a></div>
-  <div>
-    <span>Yeni Bir Hesap Oluştur</span> &nbsp;<a href="/register"
-      >Hesap Oluştur</a
-    >
-  </div>
-</div>
+</main>
