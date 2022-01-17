@@ -8,7 +8,7 @@ const Brand = require("../models/Brand");
 router.get("/", async (req, res) => {
   res.locals.categories = await fnCategory.get();
   const lastProducts = await fnProduct.getWhereLimit(15);
-  console.log(lastProducts);
+
   res.render("pages/home", { lastProducts });
 });
 
@@ -31,9 +31,13 @@ router.get("/login", async (req, res) => {
   });
 });
 router.get("/basket", async (req, res) => {
+  const user = req.user;
+
+  if (!user.id) res.redirect("/");
   res.locals.categories = await fnCategory.get();
+  const u = await fnProduct.myProducts(req.user);
   res.render("pages/basket", {
-    brands: await fnBrand.get(),
+    items: u.baskets,
   });
 });
 router.get("/product/:queryName", async (req, res) => {
@@ -43,16 +47,12 @@ router.get("/product/:queryName", async (req, res) => {
     const brand = await fnBrand.getWhereById(product.brand);
     const category = await fnCategory.getWhereById(brand.category);
 
-    console.log({ brand, category });
-
     res.locals.categories = await fnCategory.get();
     res.render("pages/product", {
       product: await fnProduct.getFromQueryName(queryName),
       categoryName: category.queryName,
     });
-  } catch (error) {
-    console.log(error.message);
-  }
+  } catch (error) {}
 });
 
 router.get("/category/:name", async (req, res) => {

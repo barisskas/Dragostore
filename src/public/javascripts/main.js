@@ -264,8 +264,6 @@ $(() => {
       await axios.get(`/api/add-basket?productId=${productId}`);
 
       toastr["success"]("Successfully product added");
-      $(this).text("sepetten çıkar");
-      $(this).toggleClass("add-basket", "remove-basket");
     } catch (error) {
       toastr["error"](error.response.data.message || error.message);
     }
@@ -277,9 +275,11 @@ $(() => {
     try {
       await axios.get(`/api/remove-basket?productId=${productId}`);
 
+      $(this).parents("tr").remove();
+
       toastr["success"]("Successfully product removed");
-      $(this).text("sepete ekle");
-      $(this).toggleClass("remove-basket", "add-basket");
+      // $(this).text("sepete ekle");
+      // $(this).toggleClass("remove-basket", "add-basket");
     } catch (error) {
       toastr["error"](error.response.data.message || error.message);
     }

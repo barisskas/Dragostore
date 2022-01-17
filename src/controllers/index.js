@@ -1,6 +1,7 @@
 const Category = require("../models/Category");
 const Brand = require("../models/Brand");
 const Product = require("../models/Product");
+const User = require("../models/User");
 
 const fnCategory = {
   async get() {
@@ -89,7 +90,7 @@ const fnBrand = {
 const fnProduct = {
   async get({ brandIds, minPrice, maxPrice, category }) {
     brandIds = brandIds ? JSON.parse(brandIds) : [];
-    console.log(brandIds);
+
     let { products } = await fnCategory.getFromCategoryQueryName(category);
 
     products = products.filter((product) => {
@@ -141,6 +142,50 @@ const fnProduct = {
       })
       .sort({ createdAt: 1 })
       .limit(limit);
+  },
+
+  async myProducts(user) {
+    return await User.findById(user.id).populate("baskets");
+
+    // User.aggregate([
+    //   {
+    //     $lookup: {
+    //       from: "products",
+    //       localField: "baskets",
+    //       foreignField: "_id",
+    //       as: "items",
+    //     },
+    //   },
+    //   {
+    //     $unwind: { path: "$items", preserveNullAndEmptyArrays: true },
+    //   },
+    //   {
+    //     $match: {
+    //       _id: user._id,
+    //     },
+    //   },
+    //   {
+    //     $group: {
+    //       _id: "$items",
+
+    //       // name: { $first: "$items.name" },
+    //       // queryName: { $first: "$items.queryName" },
+    //       // images: { $first: "$items.images" },
+
+    //       // name: "$items.name",
+    //       // images: "$items.images",
+    //       price: {
+    //         $sum: 1,
+    //       },
+    //       // totalAmount: { $sum: { $multiply: ["$price", "$count"] } },
+    //     },
+    //   },
+    //   // {
+    //   //   $project: {
+    //   //     items: 1,
+    //   //   },
+    //   // },
+    // ]);
   },
 };
 

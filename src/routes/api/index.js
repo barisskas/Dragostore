@@ -99,7 +99,7 @@ router
 router.get("/brand-from-category/:queryName", async (req, res) => {
   try {
     const { queryName } = req.params;
-    console.log(queryName);
+
     res.json(await fnBrand.getFromCategoryQueryName(queryName));
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -112,11 +112,9 @@ router
   .route("/product")
   .get(async (req, res) => {
     try {
-      console.log(req.query);
       const products = await fnProduct.get(req.query);
       res.json(products);
     } catch (error) {
-      console.log(error);
       res.status(500).json({ message: error.message });
     }
   })
@@ -209,8 +207,6 @@ router.get("/getBrandId", async (req, res) => {
   const categoryId = (await Category.findOne({ queryName: categoryQueryName }))
     .id;
 
-  console.log(categoryId);
-
   res.json({
     brandId: await Brand.findOne({
       queryName: brandQueryName,
@@ -238,9 +234,15 @@ router.get("/remove-basket", async (req, res) => {
 
   if (!user) res.redirect("/");
 
-  res.json(
-    await User.findOneAndUpdate(req.user.id, { $pull: { baskets: productId } })
-  );
+  res.json(await user.update({ $pull: { baskets: productId } }));
+});
+
+router.get("/baskets", async (req, res) => {
+  const user = req.user;
+
+  if (!user) res.redirect("/");
+
+  return await fnProduct.myProducts();
 });
 
 module.exports = router;

@@ -4,42 +4,40 @@
       <div class="col-lg-8">
         <table class="table text-white m-auto text-center">
           <thead class="thead-dark">
-            <tr class=" text-uppercase">
-              <th scope="col">resim</td>
-              <th scope="col">model</td>
-              <th scope="col">adet</td>
-              <th scope="col">fiyat</td>
+            <tr class="text-uppercase">
+              <th scope="col">resim</th>
+              <th scope="col">model</th>
+              <th scope="col">fiyat</th>
             </tr>
           </thead>
           <tbody>
+            <% items.forEach((item) => {%>
             <tr>
               <td>resim</td>
-              <td>model</td>
+              <td><%= item.name %></td>
+
+              <td><%= item.name %></td>
               <td>
-                <input
-                  type="number"
-                  id="quantity"
-                  name="quantity"
-                  min="1"
-                  max="10"
-                  value="1"
-                />
+                <button
+                  id="<%= item._id %>"
+                  class="btn btn-primary remove-basket"
+                >
+                  remove
+                </button>
               </td>
-              <td>fiyat</td>
-              <td><button class="btn btn-primary">remove</button></td>
             </tr>
+            <% }) %>
           </tbody>
         </table>
       </div>
       <div class="col-lg-4 text-center m-auto">
-          <div class="row">
-            <div class="col text-uppercase text-white m-3"> TOPLAM fiyat:</div>
-            <div class="col text-uppercase text-white m-3"> fiyat</div>
-          </div>
-          <button class="btn text-uppercase text-white btn-primary m-3 mx-auto">satınal</button>
 
+          <div class="col text-uppercase text-white m-3">
+            TOPLAM fiyat: <%= items.reduce((p,n) =>( p + n.price),0) %>
 
-
+        <button class="btn text-uppercase text-white btn-primary m-3 mx-auto">
+          satınal
+        </button>
       </div>
     </div>
   </div>

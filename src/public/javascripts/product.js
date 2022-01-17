@@ -3,7 +3,7 @@ $(() => {
   const loadingDiv = $("#loading");
   const brandSelectDiv = $(".brand");
   const productsDiv = $("#products");
-  const priceButton = $(".price-search");
+  const priceButton = $(".filter-counts");
 
   const minPriceTextbox = $("#minPrice");
   const maxPriceTextbox = $("#maxPrice");
@@ -59,20 +59,16 @@ $(() => {
 
     url.searchParams.set("brandIds", JSON.stringify(brands));
 
-    console.log(url);
-
     const response = (await axios.get(`${url}`)).data;
 
     productsDiv.children().remove();
     response.forEach(addProduct);
 
-    console.log(response);
     loading(false);
   });
 
   priceButton.on("click", async function () {
-    let query = "";
-
+    loading(true);
     const minPrice = Number(minPriceTextbox.val());
     const maxPrice = Number(maxPriceTextbox.val());
 
@@ -84,5 +80,6 @@ $(() => {
 
     productsDiv.children().remove();
     response.forEach(addProduct);
+    loading(false);
   });
 });
