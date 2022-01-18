@@ -11,7 +11,11 @@ router.get("/", async (req, res) => {
 
   res.render("pages/home", { lastProducts });
 });
+router.get("/support", async (req, res) => {
+  res.locals.categories = await fnCategory.get();
 
+  res.render("pages/support");
+});
 router.get("/admin", async (req, res) => {
   const user = req.user;
   console.log(user);
