@@ -410,7 +410,7 @@ body {
 .home-slide {
   overflow: hidden;
   position: relative;
-  width: 100vw;
+  width: 100%;
 }
 
 .home-slide .swiper-slide {
