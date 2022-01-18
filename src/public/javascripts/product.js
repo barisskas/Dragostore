@@ -20,7 +20,7 @@ $(() => {
 
   function addProduct(product) {
     const productHTML = String.raw`
-      <a class="col-lg-4 col-md-6 col-sm-12 card-cover" href="/product/${
+      <a class="col-xl-4 col-lg-6 col-sm-12 card-cover" href="/product/${
         product.queryName
       }">
     <div class="col-12 product-col">
