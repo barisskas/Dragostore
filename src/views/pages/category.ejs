@@ -110,7 +110,7 @@
               <div class="card-body">
                 <div class="card-title product-name"><%= product.name %></div>
                 <p class="card-text">
-                  <%= product.features.replaceAll(" ","\n") %>
+                  <%= product.features.splice(" ").join("\n") %>
                 </p>
                 <div
                   class="card-title product-price shopping-basket filtersearch"
