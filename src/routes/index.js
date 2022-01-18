@@ -13,6 +13,11 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/admin", async (req, res) => {
+  const user = req.user;
+  console.log(user);
+
+  if (!user || !user.isAdmin) res.redirect("/");
+
   res.locals.categories = await fnCategory.get();
   res.render("pages/admin", {
     brands: await fnBrand.get(),
@@ -33,7 +38,8 @@ router.get("/login", async (req, res) => {
 router.get("/basket", async (req, res) => {
   const user = req.user;
 
-  if (!user.id) res.redirect("/");
+  if (!user) return res.redirect("/");
+
   res.locals.categories = await fnCategory.get();
   const u = await fnProduct.myProducts(req.user);
   res.render("pages/basket", {

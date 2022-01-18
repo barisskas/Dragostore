@@ -13,10 +13,10 @@
           <tbody>
             <% items.forEach((item) => {%>
             <tr>
-              <td>resim</td>
+              <td><img src="/images/product/<%= item.brand.category.queryName %>/<%= item.images[0].url %>" class="img-fluid basket-img" /></td>
               <td><%= item.name %></td>
 
-              <td><%= item.name %></td>
+              <td><%= item.price %> TL</td>
               <td>
                 <button
                   id="<%= item._id %>"
@@ -32,8 +32,8 @@
       </div>
       <div class="col-lg-4 text-center m-auto">
 
-          <div class="col text-uppercase text-white m-3">
-            TOPLAM fiyat: <%= items.reduce((p,n) =>( p + n.price),0) %>
+          <div class="col text-uppercase text-white m-auto">
+            TOPLAM fiyat: <%= items.reduce((p,n) =>( p + n.price),0) %> TL
 
         <button class="btn text-uppercase text-white btn-primary m-3 mx-auto">
           satınal

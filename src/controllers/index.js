@@ -145,7 +145,15 @@ const fnProduct = {
   },
 
   async myProducts(user) {
-    return await User.findById(user.id).populate("baskets");
+    return await User.findById(user.id).populate({
+      path: "baskets",
+      populate: {
+        path: "brand",
+        populate: {
+          path: "category",
+        },
+      },
+    });
 
     // User.aggregate([
     //   {

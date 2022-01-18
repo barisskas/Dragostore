@@ -410,6 +410,7 @@ body {
 .home-slide {
   overflow: hidden;
   position: relative;
+  width: 100vw;
 }
 
 .home-slide .swiper-slide {
@@ -757,4 +758,8 @@ body {
 }
 .navbar-toggler {
   margin-left: auto !important;
+}
+.basket-img {
+  width: 100px;
+  height: auto;
 }

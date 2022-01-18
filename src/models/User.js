@@ -5,7 +5,10 @@ const UserSchema = new mongoose.Schema(
     fullName: String,
     email: String,
     password: String,
-    isAdmin: Boolean,
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
     baskets: [{ type: mongoose.Types.ObjectId, ref: "product" }],
   },
   { timestamps: true }
