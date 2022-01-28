@@ -200,7 +200,7 @@ const fnProduct = {
 
 const fnTicket = {
   async getAll() {
-    return await Ticket.find();
+    return await Ticket.find().sort({ createdAt: -1 });
   },
   async add({ name, email, content }) {
     const newTicket = new Ticket({ name, email, content });
