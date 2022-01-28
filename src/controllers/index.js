@@ -2,6 +2,7 @@ const Category = require("../models/Category");
 const Brand = require("../models/Brand");
 const Product = require("../models/Product");
 const User = require("../models/User");
+const Ticket = require("../models/Ticket");
 
 const fnCategory = {
   async get() {
@@ -197,4 +198,14 @@ const fnProduct = {
   },
 };
 
-module.exports = { fnCategory, fnBrand, fnProduct };
+const fnTicket = {
+  async getAll() {
+    return await Ticket.find();
+  },
+  async add({ name, email, content }) {
+    const newTicket = new Ticket({ name, email, content });
+    return await newTicket.save();
+  },
+};
+
+module.exports = { fnCategory, fnBrand, fnProduct, fnTicket };

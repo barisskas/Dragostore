@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { fnCategory, fnBrand, fnProduct } = require("../controllers");
+const { fnCategory, fnBrand, fnProduct, fnTicket } = require("../controllers");
 const Brand = require("../models/Brand");
 
 /* GET home page. */
@@ -18,7 +18,6 @@ router.get("/support", async (req, res) => {
 });
 router.get("/admin", async (req, res) => {
   const user = req.user;
-  console.log(user);
 
   if (!user || !user.isAdmin) res.redirect("/");
 
@@ -77,6 +76,14 @@ router.get("/category/:name", async (req, res) => {
   // if (!foundedCategory) res.status(404).json({ message: "Not found" });
 
   res.render("pages/category", { products, brands, categoryName });
+});
+router.get("/list-ticket", async (req, res) => {
+  const user = req.user;
+
+  if (!user || !user.isAdmin) res.redirect("/");
+  res.locals.categories = await fnCategory.get();
+
+  res.render("pages/list-ticket", { tickets: await fnTicket.getAll() });
 });
 
 module.exports = router;

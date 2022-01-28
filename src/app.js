@@ -30,7 +30,8 @@ require("./strategies/local");
 app.use(
   session({
     secret: "secred",
-
+    resave: false,
+    saveUninitialized: false,
     cookie: {
       maxAge: 6000000,
     },

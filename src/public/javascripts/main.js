@@ -284,4 +284,22 @@ $(() => {
       toastr["error"](error.response.data.message || error.message);
     }
   });
+
+  $("#send-ticket").on("click", async function (e) {
+    e.preventDefault();
+    try {
+      const name = $("input[name='name']").val();
+      const email = $("input[name='email']").val();
+      const content = $("textarea[name='content']").val();
+
+      await axios.post(`/api/ticket`, { name, email, content });
+
+      toastr["success"]("Successfully");
+      $("input[name='name']").val("");
+      $("input[name='email']").val("");
+      $("textarea[name='content']").val("");
+    } catch (error) {
+      toastr["error"](error.response.data.message || error.message);
+    }
+  });
 });

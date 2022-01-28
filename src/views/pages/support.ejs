@@ -218,21 +218,19 @@
         </div>
       </div>
       <div class="contact-form-wrapper">
-        <form>
-          <div class="form-item">
-            <input type="text" name="sender" required />
-            <label>İsim:</label>
-          </div>
-          <div class="form-item">
-            <input type="text" name="email" required />
-            <label>Email:</label>
-          </div>
-          <div class="form-item">
-            <textarea class="" name="message" required></textarea>
-            <label>Mesaj:</label>
-          </div>
-          <button class="submit-btn">Gönder</button>
-        </form>
+        <div class="form-item">
+          <input type="text" name="name" required />
+          <label>İsim:</label>
+        </div>
+        <div class="form-item">
+          <input type="email" name="email" required />
+          <label>Email:</label>
+        </div>
+        <div class="form-item">
+          <textarea class="" name="content" required></textarea>
+          <label>Mesaj:</label>
+        </div>
+        <button class="submit-btn" id="send-ticket">Gönder</button>
       </div>
     </div>
   </section>

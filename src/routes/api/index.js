@@ -7,7 +7,12 @@ const Category = require("../../models/Category");
 const Brand = require("../../models/Brand");
 const passport = require("passport");
 
-const { fnCategory, fnBrand, fnProduct } = require("../../controllers");
+const {
+  fnCategory,
+  fnBrand,
+  fnProduct,
+  fnTicket,
+} = require("../../controllers");
 
 // #region Category API
 router
@@ -243,6 +248,11 @@ router.get("/baskets", async (req, res) => {
   if (!user) res.redirect("/");
 
   return await fnProduct.myProducts();
+});
+
+router.post("/ticket", async (req, res) => {
+  const { name, email, content } = req.body;
+  res.json(await fnTicket.add({ name, email, content }));
 });
 
 module.exports = router;
