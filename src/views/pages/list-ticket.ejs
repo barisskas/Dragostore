@@ -2,9 +2,13 @@
   <div class="container">
     <% tickets.forEach((ticket)=> {%>
 
-    <div class="card-dark bg-dark text-white m-3">
+    <div class="card-light bg-white text-black m-5">
       <div class="card-body">
         <h5 class="card-title"><%= ticket.name %></h5>
+        <h5 class="card-title">
+          <%= ticket.createdAt.getDate() %> .<%= ticket.createdAt.getMonth() %>.
+          <%= ticket.createdAt.getFullYear() %>
+        </h5>
         <h6 class="card-subtitle mb-2 text-muted"><%= ticket.email %></h6>
         <p class="card-text"><%= ticket.content %></p>
       </div>
