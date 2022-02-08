@@ -763,3 +763,14 @@ body {
   width: 100px;
   height: auto;
 }
+.rainbow-background {
+  background-color: #7fd82b;
+  background-image: linear-gradient(
+    90deg,
+    #7fd82b 1%,
+    #ef4063 27%,
+    #e557c6 100%
+  );
+
+  background-size: 100% 100%;
+}
