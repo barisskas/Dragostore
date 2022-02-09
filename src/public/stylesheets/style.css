@@ -763,14 +763,139 @@ body {
   width: 100px;
   height: auto;
 }
-.rainbow-background {
-  background-color: #7fd82b;
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+.list-card-item .card-box {
+  overflow: hidden;
+  position: relative;
+  padding: 45px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 500px;
+  background-image: url(https://cdn.discordapp.com/attachments/912352726304845855/940713913836785744/IMG_9176.jpg);
+
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s linear !important;
+}
+.list-card-item .card-box:hover {
+  background-position-y: 10%;
+  filter: drop-shadow(-9px 16px 0px #343331);
+}
+.list-card-item .card-box:hover > .card-info {
+  top: 50%;
+  margin-top: 35px;
+}
+.list-card-item .card-box:hover > .card-text {
+  top: 0px;
+  width: 100%;
+  text-shadow: 5px 5px 10px rgba(36, 35, 35, 0.13);
+  background-color: #c73e1d;
   background-image: linear-gradient(
-    90deg,
-    #7fd82b 1%,
-    #ef4063 27%,
-    #e557c6 100%
+    315deg,
+    #c73e1d 0%,
+    #a23b72 37%,
+    #2e86ab 100%
   );
 
-  background-size: 100% 100%;
+  box-shadow: -5px 10px 10px black;
+}
+.list-card-item .card-box:hover > .card-text > .heading {
+  text-shadow: none;
+}
+.heading {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.list-card-item .card-box:hover > .card-text > .para {
+  text-shadow: none;
+}
+.info-para {
+  padding: auto;
+  font-size: large;
+  padding: 10px;
+}
+.list-card-item .card-box .card-text {
+  transition: 0.1s ease;
+  margin-bottom: 25px;
+  position: absolute;
+  color: white;
+  text-align: center;
+  font-family: "Anton", sans-serif;
+  padding: auto;
+}
+.list-card-item .card-box .card-text .heading {
+  font-size: 35px;
+  text-shadow: 3px 10px 14px #151515;
+}
+.list-card-item .card-box .card-text .para {
+  font-size: 20px;
+  text-shadow: 3px 10px 14px #151515;
+}
+.list-card-item .card-box .card-info {
+  transition: 0.3s ease;
+  bottom: -50%;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+.list-card-item .card-box .card-info .info-para {
+  color: white;
+  text-shadow: -2px 0px 11px #151515;
+}
+.list-card-item .card-box .card-info button {
+  padding: 7px 18px;
+  border: none;
+  background-color: #ff8107;
+  margin-top: 25px;
+}
+.list-card-item .card-box .card-info button:hover {
+  color: white;
+  background-color: #c06200;
+}
+
+.list-card-item .card-section {
+  margin-top: 45px;
+  padding: 7px 18px;
+  flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.list-card-item .card-box:nth-child(2) {
+  background-image: url("https://images.unsplash.com/photo-1565992441121-4367c2967103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80");
+}
+.list-card-item .card-box:nth-child(2):hover > .card-text {
+  top: 0;
+  width: 100%;
+  text-shadow: 5px 5px 10px rgba(36, 35, 35, 0.13);
+  background-color: #0d7ded;
+}
+.list-card-item .card-box:nth-child(2) .card-info > button {
+  background-color: #0d7ded;
+}
+.list-card-item .card-box:nth-child(2) .card-info > button:hover {
+  background-color: #0b6cca;
+}
+
+.list-card-item .card-box:nth-child(3) {
+  background-image: url("https://images.unsplash.com/photo-1626826792954-a1c68aeca425?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+}
+.list-card-item .card-box:nth-child(3):hover > .card-text {
+  top: 0;
+  width: 100%;
+  text-shadow: 5px 5px 10px rgba(36, 35, 35, 0.13);
+  background-color: #0e9b06;
+}
+.list-card-item .card-box:nth-child(3) .card-info > button {
+  background-color: #0e9b06;
+}
+.list-card-item .card-box:nth-child(3) .card-info > button:hover {
+  background-color: #0b7604;
 }

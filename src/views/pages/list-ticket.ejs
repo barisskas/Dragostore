@@ -1,4 +1,5 @@
-<main class="rainbow-background">
+<main>
+  <!--
   <div class="container">
     <% tickets.forEach((ticket)=> {%>
 
@@ -16,4 +17,24 @@
 
     <%}) %>
   </div>
+  -->
+  <% tickets.forEach((ticket)=> {%>
+  <div class="col-lg-8 list-card-item mx-auto p-3">
+    <div class="card-section">
+      <div class="card-box p-3">
+        <div class="card-text">
+          <div class="heading"><%= ticket.name %></div>
+          <div class="para">
+            <%= ticket.createdAt.getDate() %> .<%= ticket.createdAt.getMonth()
+            %>. <%= ticket.createdAt.getFullYear() %>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="info-para"><%= ticket.content %></div>
+          <button class="card-btn"><%= ticket.email %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%}) %>
 </main>
