@@ -771,7 +771,7 @@ body {
   padding: 45px;
   box-sizing: border-box;
   width: 100%;
-  height: 500px;
+  height: 800px;
   background-image: url(https://cdn.discordapp.com/attachments/912352726304845855/940713913836785744/IMG_9176.jpg);
 
   background-position: center;
@@ -816,7 +816,8 @@ body {
 }
 .info-para {
   padding: auto;
-  font-size: large;
+  font-weight: bold;
+  font-size: 16pt;
   padding: 10px;
 }
 .list-card-item .card-box .card-text {
@@ -838,7 +839,7 @@ body {
 }
 .list-card-item .card-box .card-info {
   transition: 0.3s ease;
-  bottom: -50%;
+  bottom: -70%;
   position: absolute;
   width: 100%;
   text-align: center;
